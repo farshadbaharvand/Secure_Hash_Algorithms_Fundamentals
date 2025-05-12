@@ -1,9 +1,9 @@
-1. Introduction to Hash Functions
+# 1. Introduction to Hash Functions
 Cryptographic hash functions are fundamental building blocks of modern cryptography. They play a crucial role in data security, enabling functionalities like data integrity verification, digital signatures, password protection, and blockchain consensus mechanisms.
 
 A hash function is a deterministic algorithm that transforms an input of arbitrary length into a fixed-length output, called the hash value or digest. Unlike encryption, hash functions are one-way functions: it is computationally infeasible to retrieve the original input from its hash output.
 
-1.1 Definition of a Hash Function
+# 1.1 Definition of a Hash Function
 Formally, a hash function H maps an input x from a large domain D to a fixed-size output in a range R:
 
 𝐻
@@ -20,7 +20,7 @@ R is the set of all possible hash values (binary strings of fixed length, e.g., 
 
 The output hash value h = H(x) acts as a unique fingerprint of the input data.
 
-1.2 Essential Security Properties
+# 1.2 Essential Security Properties
 For a hash function to be suitable for cryptographic use, it must satisfy several critical properties:
 
 Property	Description
@@ -32,7 +32,7 @@ Avalanche Effect	A small change in input should result in a significantly differ
 
 These properties ensure that hash functions provide data integrity, resist tampering, and are resilient to various forms of attack.
 
-1.3 Use Cases and Applications
+# 1.3 Use Cases and Applications
 Hash functions are widely utilized in the following domains:
 
 Data Integrity Verification
@@ -53,7 +53,7 @@ Ensures immutability and security of transaction data. For example, Bitcoin uses
 Proof-of-Work Systems
 Uses computationally difficult hash puzzles to prevent spam and ensure fairness in distributed systems.
 
-1.4 Historical Background
+# 1.4 Historical Background
 Early hash functions like MD4, MD5, and SHA-0 were once widely adopted but later deemed insecure due to vulnerabilities such as collision attacks. This led to the development of stronger hash families like SHA-1, SHA-2, and the more modern SHA-3.
 
 The Secure Hash Algorithm (SHA) family was developed by the National Institute of Standards and Technology (NIST) in collaboration with the National Security Agency (NSA), and has become a global standard for cryptographic hashing.
