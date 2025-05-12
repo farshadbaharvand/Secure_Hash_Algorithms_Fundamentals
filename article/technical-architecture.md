@@ -34,15 +34,24 @@ For each round **t**:
 
 
 T1 = h + Σ1(e) + Ch(e, f, g) + K[t] + W[t]
+
+
 T2 = Σ0(a) + Maj(a, b, c)
 
 h = g
+
 g = f
+
 f = e
+
 e = d + T1
+
 d = c
+
 c = b
+
 b = a
+
 a = T1 + T2
 
 
