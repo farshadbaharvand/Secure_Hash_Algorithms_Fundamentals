@@ -65,8 +65,8 @@ gantt
 
 ```mermaid
 flowchart LR
-    A[Input Message] --> B[Padding \ (length adjusted\)]
-    B --> C[Block Parsing \ (512 or 1024 bits\)]
+    A[Input Message] --> B[Padding - length adjusted]
+    B --> C[Block Parsing - 512 or 1024 bits]
     C --> D[Message Schedule Expansion]
     D --> E[Compression Function]
     E --> F[State Update]
@@ -98,12 +98,17 @@ flowchart LR
 ## 2.6 Adoption Trends (Estimated 2025)
 
 ~~~~mermaid
+---
+config:
+  theme: neutral
+---
 pie
     title SHA Adoption Share (2025 Estimate)
     "SHA-1 (Legacy)" : 5
     "SHA-2 Family" : 70
     "SHA-3 Family" : 20
     "Other Hash Functions" : 5
+
 ~~~~
 
 ---
