@@ -68,6 +68,8 @@ A robust cryptographic hash function must withstand various attack vectors. This
 | Side-Channel Resistance     | Requires careful implementation             | Facilitates efficient, secure implementations |
 | Cryptanalysis Status        | Secure with minor theoretical weaknesses    | Secure, no practical vulnerabilities     |
 
+---
+
 ### 4.4 Forward Security Considerations
 
 - SHA-2 continues to be sufficient for most applications.
@@ -78,3 +80,21 @@ The choice between SHA-2 and SHA-3 depends on application-specific needs:
 - **SHA-2** is preferable for compatibility and performance in existing systems.
 - **SHA-3** is favored for new designs requiring advanced security features and resistance to structural attacks.
 
+---
+
+
+~~~~mermaid
+graph TD
+    A[Start: Input Message]
+    A --> B_SHA2[SHA-2: Merkle-Damgard Construction]
+    A --> B_SHA3[SHA-3: Sponge Construction]
+
+    B_SHA2 --> C1[Padding and Parsing]
+    C1 --> D1[Compression Function -Davies-Meyer-]
+    D1 --> E1[Hash Output]
+
+    B_SHA3 --> C2[Multi-rate Padding]
+    C2 --> D2[Absorbing Phase -XOR + Keccak-f-]
+    D2 --> E2[Squeezing Phase -Output Extraction-]
+    E2 --> F2[Hash Output]
+~~~~
