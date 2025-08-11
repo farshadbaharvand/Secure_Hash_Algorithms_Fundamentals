@@ -33,25 +33,10 @@ SHA-2 is based on the **Merkle–Damgård construction**, using the **Davies–M
 For each round **t**:
 
 ~~~~
-T1 = h + Σ1(e) + Ch(e, f, g) + K[t] + W[t]
-T2 = Σ0(a) + Maj(a, b, c)
-
-h = g
-g = f
-f = e
-e = d + T1
-d = c
-c = b
-b = a
-a = T1 + T2
-
-
-# Compression Function - Round t
 
 T1 = h + Σ1(e) + Ch(e, f, g) + K[t] + W[t]  
 T2 = Σ0(a) + Maj(a, b, c)  
 
-Update working variables:  
 h ← g  
 g ← f  
 f ← e  
@@ -60,9 +45,6 @@ d ← c
 c ← b  
 b ← a  
 a ← T1 + T2
-
-
-
 ~~~~
 
 Where:  
@@ -145,7 +127,6 @@ flowchart TB
 
 ![Sponge Construction Diagram](./images/SpongeConstruction.png)
 
-*Source: Wikimedia Commons - Keccak Sponge Construction*
 
 ---
 
@@ -164,26 +145,22 @@ flowchart TB
 ### 3.4 Summary Diagram: SHA-2 vs SHA-3 Architectures
 
 ~~~~mermaid
-graph TD
-    A[Input Message] --> B_SHA2[SHA-2: Merkle–Damgård]
-    A --> B_SHA3[SHA-3: Sponge Construction]
-    
-    B_SHA2 --> C1[Padding + Parsing]
-    C1 --> D1[Compression Function (Davies–Meyer)]
-    D1 --> E1[Hash Output]
+---
+config:
+  look: neo
+  layout: dagre
+  theme: forest
+---
+flowchart TD
+    A["Input Message"] --> B_SHA2["SHA-2 Merkle-Damgard"] & B_SHA3["SHA-3 Sponge Construction"]
+    B_SHA2 --> C1["Padding and Parsing"]
+    C1 --> D1["Compression Function Davies-Meyer"]
+    D1 --> E1["Hash Output"]
+    B_SHA3 --> C2["Multi-rate Padding"]
+    C2 --> D2["Absorb Phase XOR + Keccak-f"]
+    D2 --> E2["Squeeze Phase Output Extraction"]
+    E2 --> F2["Hash Output"]
 
-    B_SHA3 --> C2[Multi-rate Padding]
-    C2 --> D2[Absorb Phase (XOR + Keccak-f)]
-    D2 --> E2[Squeeze Phase (Output Extraction)]
-    E2 --> F2[Hash Output]
 ~~~~
 
 ---
-
-### Suggested Images for Illustration
-
-- **SHA-2 Block Processing Diagram:** Showing padding, parsing, and compression rounds.  
-- **Keccak Sponge Construction:** Visualize the absorb and squeeze phases with the state matrix.  
-- **Comparison Table Image:** Highlighting key architectural differences.  
-
-These visuals can greatly enhance reader understanding.
